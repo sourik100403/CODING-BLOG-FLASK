@@ -1,0 +1,45 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/codingworld",
+        "prod_uri":"mysql://root:@localhost/codingworld",
+        "fb_url":"https://facebook.com/codingworld",
+        "twiter_url":"https://twiter.com/condingworld",
+        "git_url":"https://github.com/codingworl",
+
+        "blog_num":"Coding World",
+        "tag_line":"A Blog By The Programmer",
+        "home_img":"home-bg.jpg",
+
+        "about_img":"about-bg.jpg",
+        "about_heading":"About Me",
+        "about_subheading":"This is what I do.",
+        "about_text":"I am a sourik parui,I am a programmer, I create this web site ,how it is please review and inspire me",
+
+        "dashboard_heading":"Admin Wellcome",
+        "dashboard_subheading":"now you can edit you post ",
+        "dashboard_img":"dashboard-bg.jpg",
+
+        "editpannel_heading":"Admin Wellcome",
+        "editpannel_subheading":"now you can edit you post ",
+        "editpannel_img":"editpannel-bg.jpg",
+
+        "contact_heading":"Contact Me",
+        "contact_subheading":"Have questions? I have answers.",
+        "contact_img":"contact-bg.jpg",
+        "contact_tagline":"Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!",
+
+
+        "gmail_username":"sourik1004031@gmail.com",
+        "gmail_password":"Parui@100403",
+       
+        "no_of_posts":4,
+        "login_img":"login-bg.jpg",
+
+        "admin_user":"sourik",
+        "admin_password":"Code@withSourik",
+
+        "upload_location":"D:\\ENGINEERING\\CODE LANGUAGE\\flask\\static\\assets\\upload_folder"
+    }
+}

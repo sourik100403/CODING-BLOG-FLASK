@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        {% set fname='assets/img/' + params['editpannel_img'] %}
+        <header class="masthead mb-0" style="background-image: url(' {{ url_for('static',filename=fname)}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['editpannel_heading']}}</h1>
+                            <span class="subheading">{{params['editpannel_subheading']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+            <!-- here message flashing start -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category,message in messages%}
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+               {{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+           <!-- here message flashing end -->
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center my-2">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h1>Basic Action</h1>
+                    <a href="/dashboard"><button type="button" class="btn btn-primary">Dashboard Home</button></a>
+                    <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
+                    <hr>
+                    <h1>Add/Edit Posts</h1>
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/edit/{{sno}}" method="post">
+                        <div class="form-floating">
+                            <input class="form-control" id="title" type="text" name="title" placeholder="Edit Your Title" data-sb-validations="required" value="{{post.title}}"/>
+                            <label for="title">Title</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A Title is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" id="tagline" type="text" name="tagline" placeholder="Edit Your Tag Line" data-sb-validations="required" value="{{post.tagline}}"/>
+                            <label for="tagline">Tag Line</label>
+                            <div class="invalid-feedback" data-sb-feedback="tagline:required">An Tagline is required.</div>
+                            <!-- <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>  -->
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" id="slug" type="text" name="slug" placeholder="Edit Your Slug" data-sb-validations="required" value="{{post.slug}}" />
+                            <label for="slug">Slug</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A slug is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <textarea class="form-control" id="content" name="content" placeholder="Edit your content" style="height: 12rem" data-sb-validations="required" >{{post.content}}</textarea>
+                            <label for="content">Content</label>
+                            <div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" id="img_file" name="img_file" placeholder="Edit your Image "value="{{post.img_file}}">
+                            <label for="img_file">Image File</label>
+                        </div>
+
+
+                        <br />
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                To activate this form, sign up at
+                                <br />
+                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary" id="submitButton" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
